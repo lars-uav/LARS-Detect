@@ -53,30 +53,24 @@ We implement a combination of Focal Loss and Label Smoothing:
 
 1. **Label Smoothing**: Redistributes confidence across classes
 
-   ```
-   y_smooth = (1 - ε)y + ε/C
-   ```
+   $$
+   y_{smooth} = (1 - ε)y + ε/C
+   $$
 
    where ε is the smoothing factor and C is the total number of classes.
 
 2. **Focal Loss**: Focuses on harder examples
 
-   ```
-   L_focal(pt) = -α(1 - pt)^γ log(pt)
-   ```
+   $$
+   L_{focal}(pt) = -α(1 - pt)^γ log(pt)
+   $$
 
    where pt is the predicted probability for the true class.
 
 3. **Combined Loss (FLS)**:
-   ```
-   L_FLS = -α(1 - pt)^γ log(p_smooth)
-   ```
-
-### Augmentation Strategy
-
-- Random flipping (horizontal/vertical)
-- Random rotation
-- Color jittering (brightness, contrast, saturation, hue)
+   $$
+   L_{FLS} = -α(1 - pt)^γ log(p_{smooth})
+   $$
 
 ## Requirements
 
@@ -91,19 +85,6 @@ scikit-learn
 tqdm
 wandb
 ```
-
-## Deployment Strategy
-
-The model is designed for deployment on a Raspberry Pi 5 (Quad-core Cortex-A76 processor at 2.4 GHz) with a MAPIR Survey 3N camera for image capture. The deployment workflow is:
-
-1. Capture images using the MAPIR Survey3N RGB camera (12MP resolution)
-2. Transfer images to Raspberry Pi 5
-3. Process through the LARS-MobileNetV4 model
-4. Classify into healthy or one of 12 disease categories
-5. Communicate results to remote server
-6. Provide localized disease information to the farmer
-
-## Usage
 
 ### Data Preparation
 
