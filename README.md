@@ -53,24 +53,19 @@ We implement a combination of Focal Loss and Label Smoothing:
 
 1. **Label Smoothing**: Redistributes confidence across classes
 
-   $$
-   y_{smooth} = (1 - ε)y + ε/C
-   $$
+   $$y_{smooth} = (1 - ε)y + ε/C$$
 
    where ε is the smoothing factor and C is the total number of classes.
 
 2. **Focal Loss**: Focuses on harder examples
 
-   $$
-   L_{focal}(pt) = -α(1 - pt)^γ log(pt)
-   $$
+   $$L_{focal}(pt) = -α(1 - pt)^γ log(pt)$$
 
    where pt is the predicted probability for the true class.
 
 3. **Combined Loss (FLS)**:
-   $$
-   L_{FLS} = -α(1 - pt)^γ log(p_{smooth})
-   $$
+   
+   $$L_{FLS} = -α(1 - pt)^γ log(p_{smooth})$$
 
 ## Requirements
 
