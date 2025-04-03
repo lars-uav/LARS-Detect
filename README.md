@@ -1,4 +1,4 @@
-# LARS-Detect
+# LARS-MobileNet-V4
 
 This repository contains the implementation of the lightweight convolutional neural network architecture described in the paper "Advancing Real-Time Crop Disease Detection on Edge Computing Devices using Lightweight Convolutional Neural Networks."
 
